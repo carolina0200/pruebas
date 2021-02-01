@@ -1,0 +1,51 @@
+<div style="text-align: center;" class="mb-3">
+    <h3>Ayúdanos a responder las siguientes preguntas</h3>
+</div>
+<!-- <div class="alert alert-light" role="alert" style="text-align: center;">
+    <h3>Ayúdanos a responder las siguientes preguntas</h3>
+</div> -->
+<form [formGroup]="questionForm" *ngIf="questionForm">
+    <div class="container">
+        <div>
+            <label for="staticEmail" style="margin-left: 15px;"><i class="fa fa-id-card-o" aria-hidden="true"></i>
+                Número de
+                identificación: <span *ngIf="idUserField.invalid && idUserField.touched"
+                    style="color: crimson; font-size: smaller;">* Campo requerido</span></label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" formControlName="idUser" id="staticEmail"
+                    placeholder="Ingrese su número de documento">
+            </div>
+        </div>
+        <div formArrayName="questions" class="mb-3">
+            <ng-container *ngFor="let question of questionsArray.controls; let i = index;" [formGroupName]="i">
+                <label style="margin: 23px 0 10px 0;">
+                    {{i+1}}. {{question.controls.info.value.question}}
+                    <span *ngIf="question.controls.answer.invalid && question.controls.answer.touched"
+                        style="color: crimson; font-size: 14px;">* Campo requerido</span>
+                </label>
+                <div *ngIf="question.controls.info.value.typeQuestion == 'A'">
+                    <input type="text" class="form-control" formControlName="answer" placeholder="Ingrese su respuesta">
+                </div>
+                <div *ngIf="question.controls.info.value.typeQuestion == 'U'" class="select" >
+                    <select class="selectpicker form-control" formControlName="answer">
+                        <option disabled value="">Seleccione una opción</option>
+                        <option *ngFor="let q of [1,2,3,4]">{{question.controls.info.value['option' + q]}}</option>
+                    </select>
+                </div>
+                <div *ngIf="question.controls.info.value.typeQuestion == 'M'" class="select">
+                    <select class="selectpicker form-control" formControlName="answer" multiple 
+                        title="Seleccione una o varias opciones">
+                        <option disabled value="">Seleccione una opción</option>
+                        <ng-container *ngFor="let q of [1,2,3,4]">
+                            <option *ngIf="question.controls.info.value['option' + q]">
+                                {{question.controls.info.value['option' + q]}}</option>
+                        </ng-container>
+                    </select>
+                </div>
+            </ng-container>
+        </div>
+        <hr>
+        <button type="button" class="btn btn-success btn-lg btn-block pull-right col-sm-4 mb-3" (click)="save()">Enviar
+            respuestas <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+    </div>
+</form>
