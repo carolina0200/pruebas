@@ -1,13 +1,25 @@
 <div class="col-md-4 mb-3">
     <div class="custom-field">
-        <input type="email" class="form-control" [formControl]="a" id="zx" />
+        <input type="text" class="form-control form-control-sm" [formControl]="a"/>
         <span class="placeholder" for="zx">Enter Email</span>
     </div>
 </div>
 
 <br>
 
-<label class="custom-field one">
-    <input type="text" class="form-control" [formControl]="a" />
-    <span class="placeholder">Enter age</span>
-</label>
+<form [formGroup]="formu">
+    <label class="custom-field one mb-3">
+        <input type="text" class="form-control" formControlName="c" />
+        <span class="placeholder">Enter age</span>
+    </label>
+    <br>
+    <label class="custom-field one">
+        <input type="email" class="form-control form-control-sm" formControlName="d" />
+        <span class="placeholder">Documento</span>
+    </label>
+</form>
+
+<br>
+<hr>
+
+<button type="button" class="btn btn-success mb-3" (click)="save()">Enviar<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
