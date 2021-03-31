@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-md-3">
+        <label>Ingrese la fecha</label>
+        <input type="date" class="form-control" [formControl]="date">
+    </div>
+    <div class="col-md-2">
+        <label>Fecha</label>
+        <textarea rows="1" class="form-control">{{dateField}}</textarea>
+    </div>
+    <div class="col-md-3">
+        <label>Fecha transformada</label>
+        <input type="datetime-local" class="form-control" [formControl]="dateTransform">
+    </div>
+    <div class="col-md-3">
+        <label>Fecha transformada</label>
+        <textarea rows="1" class="form-control">{{transform}}</textarea>
+    </div>
+</div>
+
+<hr>
+<button type="button" class="btn btn-outline-info" (click)="show()">Transformar</button>

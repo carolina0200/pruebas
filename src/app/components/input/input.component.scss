@@ -1,0 +1,31 @@
+.border-lable-flt {
+    display: block;
+    position: relative;
+}
+.border-lable-flt label,
+.border-lable-flt > span {
+    position: absolute;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+    top: -9px;
+    left: 0.75rem;
+    z-index: 3;
+    line-height: 1;
+    padding: 0 5px;
+    background: white;
+    font-size: 15px;
+    color: rgb(61, 61, 61);
+}
+.border-lable-flt .form-control:placeholder-shown:not(:focus)::-webkit-input-placeholder {
+    opacity: 0;
+}
+.border-lable-flt .form-control:placeholder-shown:not(:focus) + * {
+    font-size: 17px;
+    opacity: 0.5;
+    top: 10px;
+}
+.required::after {
+    content: " * Campo requerido";
+    color: crimson;
+    font-size: smaller;
+}

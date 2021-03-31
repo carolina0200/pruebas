@@ -1,25 +1,32 @@
-<div class="col-md-4 mb-3">
-    <div class="custom-field">
-        <input type="text" class="form-control form-control-sm" [formControl]="a"/>
-        <span class="placeholder" for="zx">Enter Email</span>
+<h3>Formulario para pruebas con protactor</h3>
+<hr>
+<form [formGroup]="form">
+    <div class="row">
+        <div class="col-md-4">
+            <label style="margin: 23px 0 10px 0;">Nombre</label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Ingrese su nombre">
+        </div>
+        <div class="col-md-4">
+            <label style="margin: 23px 0 10px 0;">Apellido</label>
+            <input type="text" class="form-control" formControlName="surname" placeholder="Ingrese su apellido">
+        </div>
+        <div class="col-md-4">
+            <label style="margin: 23px 0 10px 0;">Segundo apellido</label>
+            <input type="text" class="form-control" formControlName="secondSurname" placeholder="Ingrese su apellido 2">
+        </div>
     </div>
-</div>
+    <div class="row">
+        <div class="col-md-4">
 
-<br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
 
-<form [formGroup]="formu">
-    <label class="custom-field one mb-3">
-        <input type="text" class="form-control" formControlName="c" />
-        <span class="placeholder">Enter age</span>
-    </label>
-    <br>
-    <label class="custom-field one">
-        <input type="email" class="form-control form-control-sm" formControlName="d" />
-        <span class="placeholder">Documento</span>
-    </label>
+        </div>
+    </div>
 </form>
 
-<br>
 <hr>
-
-<button type="button" class="btn btn-success mb-3" (click)="save()">Enviar<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+<button type="button" class="btn btn-success mb-3" (click)="save()">Enviar<i class="fa fa-paper-plane"
+        aria-hidden="true"></i></button>

@@ -9,12 +9,17 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
 import { HomeComponent } from './components/home/home.component';
 import { PruebaComponent } from './components/prueba/prueba.component';
+import { DateComponent } from './components/date/date.component';
+import { DatePipe } from '@angular/common';
+import { InputComponent } from './components/input/input.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PruebaComponent,
+    DateComponent,
+    InputComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +28,7 @@ import { PruebaComponent } from './components/prueba/prueba.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

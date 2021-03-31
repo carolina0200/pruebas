@@ -7,19 +7,19 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./prueba.component.scss']
 })
 export class PruebaComponent implements OnInit {
-  a = new FormControl('', Validators.required);
-  formu: FormGroup;
+  form: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.formu = this.formBuilder.group({
-      c: ['', Validators.required],
-      d: ['', Validators.required]
+    this.form = this.formBuilder.group({
+      name: ['', Validators.required],
+      surname: ['', Validators.required],
+      secondSurname: ['', Validators.required],
     })
   }
 
   save() {
-    console.log(this.formu.valid, this.formu.value);
+    
   }
 }
