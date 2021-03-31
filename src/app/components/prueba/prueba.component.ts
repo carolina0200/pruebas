@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+declare var $: any;
 
 @Component({
   selector: 'app-prueba',
@@ -8,6 +9,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class PruebaComponent implements OnInit {
   form: FormGroup;
+  message: string;
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -16,10 +18,21 @@ export class PruebaComponent implements OnInit {
       name: ['', Validators.required],
       surname: ['', Validators.required],
       secondSurname: ['', Validators.required],
+      address: ['', Validators.required],
+      phone: ['', Validators.required],
+      email: ['']
     })
   }
 
   save() {
-    
+    if (this.form.valid) {
+      console.log(this.form.value, 'OK');
+      this.message = 'OK';
+      $('#modal').modal('show');
+    } else {
+      console.log(this.form.value, 'FAIL');
+      this.message = 'FALLÉ';
+      $('#modal').modal('show');
+    }
   }
 }
